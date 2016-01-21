@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160121210223) do
   create_table "messages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
