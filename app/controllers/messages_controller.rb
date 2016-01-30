@@ -73,4 +73,10 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:title, :content, :user)
     end
+
+    def message_comment
+      @message = Message.find(params[:id])
+      @message.comments.create
+      redirect_to(messages_path)
+    end
 end

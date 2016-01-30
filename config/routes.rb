@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :messages
+  resources :messages do
+    resources :comments
+  end
 
   devise_for :users, controllers: { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
