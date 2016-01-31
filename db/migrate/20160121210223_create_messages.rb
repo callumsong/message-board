@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.string :user
+      t.string :user_email
 
       t.timestamps null: false
     end

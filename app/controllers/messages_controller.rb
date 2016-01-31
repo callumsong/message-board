@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user.name
+    @message.user_email = current_user.email
 
     respond_to do |format|
       if @message.save

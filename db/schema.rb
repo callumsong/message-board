@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160126215854) do
     t.string   "title"
     t.text     "content"
     t.string   "user"
+    t.string   "user_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
