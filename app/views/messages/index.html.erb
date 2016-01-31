@@ -22,10 +22,13 @@
           <div class="message-links"><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </div>
       <% end %>
-      <div>
+      <div class="message-comments-container">
         <p>Comments</p>
         <% message.comments.each do |comment| %>
-          <div><%= comment.comment_text %></div>
+          <div class="message-comments">
+            <div><%= comment.comment_text %></div>
+            <div><%= link_to 'Delete', [message, comment], method: :delete, data: { confirm: 'Sure?' } %></div>
+          </div>
         <% end %>
       </div>
       <div class="comment-form">
