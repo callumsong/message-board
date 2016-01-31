@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @message = Message.find(params[:message_id])
+    @comment = @message.comments.create(comment_params)
     redirect_to messages_path
   end
 
