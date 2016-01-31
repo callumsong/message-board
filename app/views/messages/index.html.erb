@@ -20,7 +20,22 @@
         <td><%= message.user %></td>
         <td><%= link_to 'Show', message %></td>
         <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Comment', message_comments_path(message) %></td>
+        <div>
+          <%= form_for ([message, Comment.new]) do |f| %>
+            <div class="field">
+              <%= f.label :comment_text %>
+              <%= f.text_field :comment_text %>
+            </div>
+            <div class="submit">
+              <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+        <td>
+          <%= message.comments.each do |comment| %>
+            <td><%= comment %></td>
+          <% end %>
+        </td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
