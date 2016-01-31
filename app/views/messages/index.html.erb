@@ -13,7 +13,7 @@
   <div class="message-container">
     <div class="message-details">
       <div class="title"><%= message.title %></div>
-      <div class="user"><%= message.user %> - <%= message.user_email %></div>
+      <div class="user"><%= message.user %> - <a><%= mail_to message.user_email %></a></div>
       <div class="message-content"><%= message.content %></div>
       <% if user_signed_in? && current_user.email == message.user_email %>
         <div class="message-links-container">
