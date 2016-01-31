@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Messages</h1>
+<%= link_to 'New Message', new_message_path %>
 
 <div>
   <% @messages.each do |message| %>
@@ -35,7 +36,3 @@
   </div>
   <% end %>
 </div>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>
