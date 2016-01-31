@@ -15,7 +15,7 @@
       <div class="title"><%= message.title %></div>
       <div class="user"><%= message.user %></div>
       <div class="message-content"><%= message.content %></div>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.name == message.user %>
         <div class="message-links-container">
           <div class="message-links"><%= link_to 'Details', message %></div>
           <div class="message-links"><%= link_to 'Edit', edit_message_path(message) %></div>
