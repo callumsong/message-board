@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Messages</h1>
-<%= link_to 'New Message', new_message_path %>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Message', new_message_path %>
+  <% else %>
+  <%= link_to 'Sign In to Create Messages', new_user_session_path %>
+<% end %>
 
 <div>
   <% @messages.each do |message| %>
@@ -10,11 +15,13 @@
       <div class="title"><%= message.title %></div>
       <div class="user"><%= message.user %></div>
       <div class="message-content"><%= message.content %></div>
-      <div class="message-links-container">
-        <div class="message-links"><%= link_to 'Details', message %></div>
-        <div class="message-links"><%= link_to 'Edit', edit_message_path(message) %></div>
-        <div class="message-links"><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-      </div>
+      <% if user_signed_in? %>
+        <div class="message-links-container">
+          <div class="message-links"><%= link_to 'Details', message %></div>
+          <div class="message-links"><%= link_to 'Edit', edit_message_path(message) %></div>
+          <div class="message-links"><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
+      <% end %>
       <div>
         <p>Comments</p>
         <% message.comments.each do |comment| %>
