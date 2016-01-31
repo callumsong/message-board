@@ -9,8 +9,6 @@ default: &default
   encoding: unicode
   database: messages
   pool: 5
-  username: mhclnjrwzatjmg
-  password: 6S4R6TGtMHFhju76leHmLwIKjm
 
 development:
   <<: *default
