@@ -9,3 +9,40 @@ h2 {
   width: 40%;
   margin: auto;
 }
+
+.message-container {
+  margin-bottom: 20px;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.message-details {
+  position: relative;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.user {
+  font-style: italic;
+}
+
+.message-links-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.message-links {
+  display: inline-block;
+}
+
+p {
+  font-weight: bold;
+}
+
+.comment-form {
+  margin-top: 10px;
+}

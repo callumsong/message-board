@@ -4,15 +4,26 @@
 
 <div>
   <% @messages.each do |message| %>
-      <div><%= message.title %></div>
-      <div><%= message.content %></div>
-      <div><%= message.user %></div>
-      <div><%= link_to 'Show', message %></div>
-      <div><%= link_to 'Edit', edit_message_path(message) %></div>
+  <div class="message-container">
+    <div class="message-details">
+      <div class="title"><%= message.title %></div>
+      <div class="user"><%= message.user %></div>
+      <div class="message-content"><%= message.content %></div>
+      <div class="message-links-container">
+        <div class="message-links"><%= link_to 'Details', message %></div>
+        <div class="message-links"><%= link_to 'Edit', edit_message_path(message) %></div>
+        <div class="message-links"><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
       <div>
+        <p>Comments</p>
+        <% message.comments.each do |comment| %>
+          <div><%= comment.comment_text %></div>
+        <% end %>
+      </div>
+      <div class="comment-form">
         <%= form_for ([message, Comment.new]) do |f| %>
           <div class="field">
-            <%= f.label :comment_text %>
+            <%= f.label 'New Comment' %> </br>
             <%= f.text_field :comment_text %>
           </div>
           <div class="submit">
@@ -20,12 +31,8 @@
           </div>
           <% end %>
       </div>
-      <div class="retarded">
-        <% message.comments.each do |comment| %>
-          <div><%= comment.comment_text %></div>
-        <% end %>
-      </div>
-      <div><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    </div>
+  </div>
   <% end %>
 </div>
 
